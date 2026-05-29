@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — All Music for Life</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    #events { background: var(--bg); }
+
+    /* ─── WHAT WE DO STRIP ──────────────────────────── */
+    #what-we-do {
+      background: var(--bg-alt);
+      padding: 56px 52px;
+      border-bottom: 1px solid var(--border);
+    }
+    .wwd-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; gap: 0;
+    }
+    .wwd-item {
+      flex: 1;
+      padding: 0 40px 0 0;
+      border-right: 1px solid var(--border);
+      margin-right: 40px;
+    }
+    .wwd-item:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+    .wwd-icon {
+      font-size: 22px; margin-bottom: 12px; color: var(--accent);
+    }
+    .wwd-item h3 {
+      font-size: 14px; font-weight: 500; letter-spacing: .02em; margin-bottom: 6px;
+    }
+    .wwd-item p {
+      font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.65;
+    }
+
+    /* ─── EVENT CARDS ───────────────────────────────── */
+    .events-list { display: flex; flex-direction: column; }
+    .event-card {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      transition: background .2s;
+    }
+    .event-card:first-child { border-top: 1px solid var(--border); }
+    .event-card:hover { background: var(--bg-alt); }
+    .event-img { height: 260px; overflow: hidden; }
+    .event-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .event-card:hover .event-img img { transform: scale(1.05); }
+    .event-body {
+      padding: 40px 52px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .event-tags { display: flex; gap: 16px; align-items: center; margin-bottom: 14px; }
+    .tag-type { font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    .tag-dot { width: 3px; height: 3px; background: var(--border); border-radius: 50%; }
+    .tag-loc { font-size: 12px; font-weight: 300; color: var(--text-muted); }
+    .event-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 400; line-height: 1.2; margin-bottom: 14px;
+    }
+    .event-body p {
+      font-size: 14px; font-weight: 300; color: var(--text-muted); line-height: 1.72; max-width: 520px;
+    }
+
+    /* ─── SLIDESHOW ─────────────────────────────────── */
+    #event-photos { background: var(--bg-alt); }
+    .slideshow-outer {
+      position: relative;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .slideshow-track {
+      display: flex;
+      gap: 16px;
+      transition: transform .45s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+    .slideshow-track img {
+      flex-shrink: 0;
+      width: calc(25% - 12px);
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+    .ss-btn {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,.9);
+      border: 1px solid var(--border);
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 22px; color: var(--text);
+      transition: background .2s, color .2s;
+      z-index: 2;
+    }
+    .ss-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .ss-prev { left: 12px; }
+    .ss-next { right: 12px; }
+
+    @media (max-width: 900px) {
+      .event-card { grid-template-columns: 1fr; }
+      .event-img { height: 220px; }
+      .event-body { padding: 28px 24px; }
+      .wwd-inner { flex-direction: column; gap: 28px; }
+      .wwd-item { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
+      .wwd-item:last-child { border-bottom: none; padding-bottom: 0; }
+      .slideshow-track img { width: calc(50% - 8px); }
+      #what-we-do { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" id="nav">
+    <a href="index.html" class="nav-logo">All Music for Life</a>
+    <ul class="nav-links">
+      <li><a href="mission.html">Mission</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-title">
+    <p class="page-title-eyebrow">All Music for Life</p>
+    <h1 class="page-title-heading">Events</h1>
+    <p class="page-title-sub">We perform at organized events, hold virtual concerts, and busk on the streets regularly.</p>
+  </div>
+
+  <!-- WHAT WE DO -->
+  <div id="what-we-do">
+    <div class="wwd-inner">
+      <div class="wwd-item">
+        <div class="wwd-icon">♩</div>
+        <h3>Organized Concerts</h3>
+        <p>Benefit concerts and community performances at hospitals, senior homes, and public venues.</p>
+      </div>
+      <div class="wwd-item">
+        <div class="wwd-icon">♪</div>
+        <h3>Virtual Concerts</h3>
+        <p>Online performances to reach wider audiences and connect with communities beyond the Bay Area.</p>
+      </div>
+      <div class="wwd-item">
+        <div class="wwd-icon">♫</div>
+        <h3>Street Busking</h3>
+        <p>Regular performances on Castro Street and other public spaces in Mountain View and the surrounding area.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENTS LIST -->
+  <section id="events">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:52px">
+        <p class="section-label">Past Events</p>
+        <h2 class="section-title">What we've done</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="events-list">
+
+        <div class="event-card reveal">
+          <div class="event-img">
+            <img src="https://static.wixstatic.com/media/e14089_be93ba539f714adbbd13ba28ef23209e~mv2.jpeg/v1/fill/w_640,h_520,al_c,q_85,enc_avif,quality_auto/e14089_be93ba539f714adbbd13ba28ef23209e~mv2.jpeg" alt="LA Wildfire Relief Concert" loading="lazy" />
+          </div>
+          <div class="event-body">
+            <div class="event-tags">
+              <span class="tag-type">Benefit Concert</span>
+              <span class="tag-dot"></span>
+              <span class="tag-loc">Mountain View, Castro Street</span>
+            </div>
+            <h3>LA Wildfire Relief</h3>
+            <p>A performance on Castro Street to support wildfire relief efforts in L.A. County. We raised funds to help with relief and recovery for those affected by the fires.</p>
+          </div>
+        </div>
+
+        <div class="event-card reveal">
+          <div class="event-img">
+            <img src="https://static.wixstatic.com/media/e14089_d4131ebcf67045a599b1e1f890d1e1fa~mv2.jpg/v1/fill/w_640,h_520,al_c,q_85,enc_avif,quality_auto/e14089_d4131ebcf67045a599b1e1f890d1e1fa~mv2.jpg" alt="Stanford Hospital Reller Family Concert" loading="lazy" />
+          </div>
+          <div class="event-body">
+            <div class="event-tags">
+              <span class="tag-type">Hospital Concert</span>
+              <span class="tag-dot"></span>
+              <span class="tag-loc">Stanford Hospital</span>
+            </div>
+            <h3>Reller Family Concert</h3>
+            <p>A live performance for patients, families, and staff at Stanford Hospital. The concert gave patients, visitors, and staff a chance to experience uplifting live music and feel a sense of community.</p>
+          </div>
+        </div>
+
+        <div class="event-card reveal">
+          <div class="event-img">
+            <img src="https://static.wixstatic.com/media/a0e7c1_bc27283fd131423190cb6771ea7bac81f003.jpg/v1/fill/w_640,h_520,al_c,q_85,enc_avif,quality_auto/a0e7c1_bc27283fd131423190cb6771ea7bac81f003.jpg" alt="GO2 Lung Cancer Fundraiser" loading="lazy" />
+          </div>
+          <div class="event-body">
+            <div class="event-tags">
+              <span class="tag-type">Fundraiser</span>
+              <span class="tag-dot"></span>
+              <span class="tag-loc">Mountain View</span>
+            </div>
+            <h3>GO2 for Lung Cancer</h3>
+            <p>A benefit concert for lung cancer research and patient support. Proceeds directly supported lung cancer patients through one-on-one support, educational materials, and research funding. Attendees praised the musicians' desire to uplift and inspire.</p>
+          </div>
+        </div>
+
+        <div class="event-card reveal">
+          <div class="event-img">
+            <img src="https://static.wixstatic.com/media/a0e7c1_7f96c83941d34dabad577a99a63352e9~mv2.jpg/v1/fill/w_640,h_520,al_c,q_85,enc_avif,quality_auto/a0e7c1_7f96c83941d34dabad577a99a63352e9~mv2.jpg" alt="Ukraine and Earthquake Relief Concert" loading="lazy" />
+          </div>
+          <div class="event-body">
+            <div class="event-tags">
+              <span class="tag-type">Fundraiser</span>
+              <span class="tag-dot"></span>
+              <span class="tag-loc">Downtown Mountain View</span>
+            </div>
+            <h3>Ukraine and Turkey-Syria Earthquake Relief</h3>
+            <p>Our first concert, on Castro Street in Downtown Mountain View. All proceeds went to UNICEF to provide critical aid — including supplies, medical assistance, and relief — to children and families affected by the conflict and earthquake.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO SLIDESHOW -->
+  <section id="event-photos">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:36px">
+        <p class="section-label">Photos</p>
+        <h2 class="section-title">From our events</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="slideshow-outer">
+        <div class="slideshow-track" id="ss-track">
+          <img src="https://static.wixstatic.com/media/a0e7c1_34b40069eb1844eaab8a13c392e16874~mv2.png/v1/fill/w_480,h_640,al_c,q_85,enc_avif,quality_auto/a0e7c1_34b40069eb1844eaab8a13c392e16874~mv2.png" alt="Event photo" loading="lazy" />
+          <img src="https://static.wixstatic.com/media/a0e7c1_aedc1583eeb14b12bc36e5cb71a54bb6~mv2.png/v1/fill/w_480,h_640,al_c,q_85,enc_avif,quality_auto/a0e7c1_aedc1583eeb14b12bc36e5cb71a54bb6~mv2.png" alt="Event photo" loading="lazy" />
+          <img src="https://static.wixstatic.com/media/e14089_8612b4cd52ab4b5ba2da062ccb6986a0~mv2.png/v1/fill/w_480,h_640,al_c,q_85,enc_avif,quality_auto/e14089_8612b4cd52ab4b5ba2da062ccb6986a0~mv2.png" alt="Event photo" loading="lazy" />
+          <img src="https://static.wixstatic.com/media/e14089_d73444d82e704f22911275a99cec1d75~mv2.png/v1/fill/w_480,h_640,al_c,q_85,enc_avif,quality_auto/e14089_d73444d82e704f22911275a99cec1d75~mv2.png" alt="Event photo" loading="lazy" />
+          <img src="https://static.wixstatic.com/media/e14089_8572cd1e76b147aa87ce6a1802edac2f~mv2.jpeg/v1/fill/w_480,h_640,al_c,q_85,enc_avif,quality_auto/e14089_8572cd1e76b147aa87ce6a1802edac2f~mv2.jpeg" alt="Event photo" loading="lazy" />
+          <img src="https://static.wixstatic.com/media/a0e7c1_799941b7ec574d0f83f72b2f2cc0c8c0~mv2.jpeg/v1/fill/w_480,h_640,al_c,q_85,enc_avif,quality_auto/a0e7c1_799941b7ec574d0f83f72b2f2cc0c8c0~mv2.jpeg" alt="Event photo" loading="lazy" />
+          <img src="https://static.wixstatic.com/media/a0e7c1_00c1c6d8eceb4caf8a3cdeb031705642~mv2.jpg/v1/fill/w_480,h_640,al_c,q_85,enc_avif,quality_auto/a0e7c1_00c1c6d8eceb4caf8a3cdeb031705642~mv2.jpg" alt="Event photo" loading="lazy" />
+        </div>
+        <button class="ss-btn ss-prev" id="ss-prev">&#8249;</button>
+        <button class="ss-btn ss-next" id="ss-next">&#8250;</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <a href="index.html" class="foot-logo">All Music for Life</a>
+    <ul class="foot-links">
+      <li><a href="mission.html">Mission</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="foot-copy">© 2025 All Music for Life · Palo Alto, CA</p>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20), { passive: true });
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .08, rootMargin: '0px 0px -24px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Slideshow
+    const track = document.getElementById('ss-track');
+    const imgs = track.children;
+    const perPage = window.innerWidth < 600 ? 2 : 4;
+    let cur = 0;
+
+    function getPerPage() { return window.innerWidth < 600 ? 2 : 4; }
+    function getItemWidth() {
+      const pp = getPerPage();
+      const gap = 16;
+      return (track.parentElement.offsetWidth - gap * (pp - 1)) / pp + gap;
+    }
+    function go(n) {
+      const pp = getPerPage();
+      cur = Math.max(0, Math.min(n, imgs.length - pp));
+      track.style.transform = `translateX(-${cur * getItemWidth()}px)`;
+    }
+
+    document.getElementById('ss-prev').addEventListener('click', () => go(cur - 1));
+    document.getElementById('ss-next').addEventListener('click', () => go(cur + 1));
+
+    // Auto advance every 4s
+    setInterval(() => {
+      const pp = getPerPage();
+      go(cur + pp >= imgs.length ? 0 : cur + 1);
+    }, 4000);
+  </script>
+</body>
+</html>
