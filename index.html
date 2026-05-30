@@ -205,11 +205,19 @@
     @media (max-width: 820px) {
       .features-grid { grid-template-columns: 1fr; }
       .feature { height: 320px; }
-      .hero-stats { flex-direction: column; }
-      .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.15); }
-      .hero-stat:last-child { border-bottom: none; }
       .strip-inner { grid-template-columns: 1fr; gap: 40px; }
       #about-strip { padding: 60px 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero { min-height: 100vh; height: auto; padding: calc(var(--nav-h) + 36px) 20px 52px; }
+      .hero-eyebrow { margin-bottom: 14px; }
+      .hero-title { font-size: 46px; margin-bottom: 16px; }
+      .hero-subtitle { font-size: 15px; margin-bottom: 28px; }
+      .hero-stats { margin-top: 40px; width: 100%; }
+      .hero-stat { padding: 16px 4px; flex: 1; }
+      .hero-stat-num { font-size: 28px; }
+      .hero-stat-label { font-size: 10px; letter-spacing: .1em; }
     }
   </style>
 </head>
