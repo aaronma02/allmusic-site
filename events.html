@@ -313,6 +313,25 @@
       const pp = getPerPage();
       go(cur + pp >= imgs.length ? 0 : cur + 1);
     }, 4000);
+  
+    // Mobile menu
+    const hbg = document.getElementById("nav-hamburger");
+    const mob = document.getElementById("mobile-menu");
+    hbg.addEventListener("click", () => {
+      const open = mob.classList.toggle("open");
+      hbg.classList.toggle("active", open);
+      document.body.style.overflow = open ? "hidden" : "";
+    });
+    document.getElementById("mobile-close").addEventListener("click", () => {
+      mob.classList.remove("open");
+      hbg.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+    mob.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      mob.classList.remove("open");
+      hbg.classList.remove("active");
+      document.body.style.overflow = "";
+    }));
   </script>
 </body>
 </html>
