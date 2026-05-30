@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://allmusicforlife.org/sitemap.xml
