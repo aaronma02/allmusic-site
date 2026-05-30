@@ -339,10 +339,10 @@
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12, rootMargin: '0px 0px -32px 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Close modal on backdrop click or Escape
-    const modal = document.getElementById('bio-modal');
-    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.classList.remove('open'); });
+    // Close modals on backdrop click or Escape
+    const modals = document.querySelectorAll('.bio-modal');
+    modals.forEach(m => m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); }));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') modals.forEach(m => m.classList.remove('open')); });
   
     // Mobile menu
     const hbg = document.getElementById("nav-hamburger");
