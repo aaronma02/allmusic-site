@@ -170,7 +170,6 @@
             <textarea id="message" name="message" placeholder="Tell us about yourself or how we can connect..." required></textarea>
           </div>
           <button type="submit" class="btn-submit" id="submit-btn">Send Message</button>
-          <div id="form-status" style="display:none;font-size:13px;padding:12px 0;font-weight:500;"></div>
         </form>
       </div>
     </div>
@@ -194,12 +193,11 @@
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12, rootMargin: '0px 0px -32px 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Show success banner if redirected back after submission
+    // Show success state if redirected back after submission
     if (new URLSearchParams(location.search).get('sent') === '1') {
-      const s = document.getElementById('form-status');
-      s.textContent = "Message sent! We'll get back to you soon.";
-      s.style.color = '#4a7c8f';
-      s.style.display = 'block';
+      document.getElementById('contact-form').style.display = 'none';
+      document.getElementById('form-status').style.display = 'block';
+      window.scrollTo({ top: document.getElementById('contact').offsetTop - 80, behavior: 'smooth' });
     }
 
     // Show sending state while the POST navigates away
