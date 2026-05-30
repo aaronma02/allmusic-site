@@ -19,9 +19,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="shared.css" />
   <style>
+    #intro  { background: var(--bg); padding-bottom: 0; }
     #founder  { background: var(--bg); }
-    #core-team { background: var(--bg-alt); }
-    #members  { background: var(--bg); }
+    #members  { background: var(--bg-alt); }
+
+    .intro-text { max-width: 760px; }
+    .intro-text p {
+      font-size: 17px; font-weight: 300; color: var(--text-muted);
+      line-height: 1.85; margin-bottom: 22px;
+    }
+    .intro-text p:last-child { margin-bottom: 0; }
 
     /* ─── FOUNDER (Aaron Ma) ───────────────────────── */
     .founder-wrap {
@@ -200,58 +207,57 @@
   <div class="page-title">
     <p class="page-title-eyebrow">All Music for Life</p>
     <h1 class="page-title-heading">Our Team</h1>
-    <p class="page-title-sub">Young musicians united by a meaningful mission.</p>
+    <p class="page-title-sub">Founded in 2022 by brothers Aaron and Kenneth Ma.</p>
   </div>
 
-  <!-- FOUNDER -->
+  <!-- INTRO -->
+  <section id="intro">
+    <div class="container">
+      <div class="intro-text reveal">
+        <p>Founded in 2022 by brothers Aaron and Kenneth Ma, All Music for Life brings together young musicians from across the Bay Area. We encourage students of all ages to showcase their talents and help others experience the joy that music brings.</p>
+        <p>We believe in music's ability to heal and connect, and we use it to bring our community closer. Beyond our in-person concerts, we run an online concert platform to share music with the world, giving musicians of every skill level a stage to share their passion.</p>
+        <p>We host several benefit concerts each year, each with new performers, and donate the proceeds to a chosen charity. Our members are students from high schools across the Bay Area and universities including Stanford, UCLA, Northwestern, Cornell, and more.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
   <section id="founder">
     <div class="container">
       <div class="reveal" style="margin-bottom:40px">
         <p class="section-label">Leadership</p>
-        <h2 class="section-title">Founder</h2>
+        <h2 class="section-title">Our founders</h2>
         <div class="rule"></div>
       </div>
-      <div class="founder-wrap reveal">
+
+      <div class="founder-wrap reveal" style="margin-bottom:28px">
         <div class="founder-photo">
           <img
             src="https://static.wixstatic.com/media/e14089_8a04cbaf1f2e4890bda64fd5619737dc~mv2.jpeg/v1/fill/w_560,h_640,al_c,q_90,enc_avif,quality_auto/e14089_8a04cbaf1f2e4890bda64fd5619737dc~mv2.jpeg"
-            alt="Aaron Ma, Founder"
+            alt="Aaron Ma, Co-Founder and President"
             loading="lazy"
           />
         </div>
         <div class="founder-info">
-          <div class="founder-role">Founder</div>
+          <div class="founder-role">Co-Founder &amp; President</div>
           <div class="founder-name">Aaron Ma</div>
           <p class="founder-bio">Violinist at the San Francisco Conservatory of Music and concertmaster of the San Francisco Symphony Youth Orchestra. Winner of the 2024-25 SFSYO Concerto Competition, with a solo debut at Louise M. Davies Symphony Hall in November 2025.</p>
           <button class="bio-btn" onclick="document.getElementById('bio-modal').classList.add('open')">Read Bio →</button>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CORE MEMBERS -->
-  <section id="core-team">
-    <div class="container">
-      <div class="reveal">
-        <p class="section-label">Core Members</p>
-        <h2 class="section-title">Core team</h2>
-        <div class="rule"></div>
-      </div>
-      <div class="core-grid">
-        <div class="core-card reveal">
-          <div class="core-role">Core Member</div>
-          <div class="core-name">Kenneth Ma</div>
-          <p class="core-bio">Cellist at SF Conservatory Pre-College and senior at Palo Alto High School. Multi-award winner who organizes performances and events for young musicians throughout the Bay Area.</p>
+      <div class="founder-wrap reveal">
+        <div class="founder-photo">
+          <img
+            src="https://static.wixstatic.com/media/e14089_071a62e6fa4543efb3231201705bd5bc~mv2.jpg/v1/fill/w_560,h_640,al_c,q_90,enc_avif,quality_auto/e14089_071a62e6fa4543efb3231201705bd5bc~mv2.jpg"
+            alt="Kenneth Ma, Co-Founder"
+            loading="lazy"
+          />
         </div>
-        <div class="core-card reveal d1">
-          <div class="core-role">Core Member</div>
-          <div class="core-name">Sean Sun</div>
-          <p class="core-bio">Pianist in SF Conservatory Pre-College, multi-award winner active in local ensemble groups and competitions throughout the Bay Area.</p>
-        </div>
-        <div class="core-card reveal d2">
-          <div class="core-role">Core Member</div>
-          <div class="core-name">Claire Wang</div>
-          <p class="core-bio">UCLA cellist performing in chamber music groups and charity events. Competes in various competitions across the country.</p>
+        <div class="founder-info">
+          <div class="founder-role">Co-Founder</div>
+          <div class="founder-name">Kenneth Ma</div>
+          <p class="founder-bio">Cellist at the San Francisco Conservatory of Music Pre-College and a student at Palo Alto High School. A multi-award winner, he organizes performances and events for young musicians throughout the Bay Area.</p>
         </div>
       </div>
     </div>
@@ -264,13 +270,11 @@
         <p class="section-label">The Ensemble</p>
         <h2 class="section-title">All members</h2>
         <div class="rule"></div>
-        <p class="members-intro">Our ensemble is made up of talented young musicians from across the Bay Area, all united by a shared commitment to community and the power of music.</p>
+        <p class="members-intro">Our members are students from high schools across the Bay Area and universities including Stanford, UCLA, Northwestern, and Cornell.</p>
       </div>
       <div class="chips reveal d1">
         <span class="chip">Aaron Ma</span>
         <span class="chip">Kenneth Ma</span>
-        <span class="chip">Sean Sun</span>
-        <span class="chip">Claire Wang</span>
         <span class="chip">Riko Ando</span>
         <span class="chip">Sheng Qin</span>
         <span class="chip">Aaron Zhu</span>
@@ -317,7 +321,7 @@
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <p class="foot-copy">© 2025 All Music for Life · Palo Alto, CA</p>
+    <p class="foot-copy">© 2026 All Music for Life · Palo Alto, CA</p>
   </footer>
 
   <script>
