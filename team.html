@@ -132,10 +132,17 @@
     }
     .core-card {
       background: var(--bg);
-      padding: 32px;
       border: 1px solid var(--border);
+      overflow: hidden;
       transition: transform .25s, box-shadow .25s;
     }
+    .core-photo { height: 210px; overflow: hidden; background: var(--bg-alt); }
+    .core-photo img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .6s ease;
+    }
+    .core-card:hover .core-photo img { transform: scale(1.04); }
+    .core-body { padding: 26px 30px 30px; }
     .core-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 36px rgba(0,0,0,.07);
@@ -277,22 +284,34 @@
 
       <div class="core-grid reveal">
         <div class="core-card">
-          <div class="core-role">Operations Director</div>
-          <div class="core-name">Mason Lee</div>
-          <p class="core-bio">Korean American violist and a freshman at Stanford University. Former principal violist of the MSM Precollege Philharmonic and assistant principal of the Grammy-winning New York Youth Symphony, he toured with Carnegie Hall's National Youth Orchestra of the USA in 2025 and 2026.</p>
-          <button class="bio-btn" style="margin-top:14px" onclick="document.getElementById('mason-modal').classList.add('open')">Read Bio →</button>
+          <div class="core-photo">
+            <img src="images/officer-mason.jpg" alt="Mason Lee" style="object-position: 30% top;" loading="lazy" />
+          </div>
+          <div class="core-body">
+            <div class="core-role">Operations Director</div>
+            <div class="core-name">Mason Lee</div>
+            <p class="core-bio">Korean American violist and a freshman at Stanford University. Former principal violist of the MSM Precollege Philharmonic and assistant principal of the Grammy-winning New York Youth Symphony, he toured with Carnegie Hall's National Youth Orchestra of the USA in 2025 and 2026.</p>
+          </div>
         </div>
 
         <div class="core-card">
-          <div class="core-role">Officer</div>
-          <div class="core-name">Claire Wang</div>
-          <p class="core-bio">Claire Wang is currently a senior at Gunn High School. She has participated in many competitions. She often plays in chamber music groups and charity events with ensembles. In her spare time outside of school, she loves to watch Japanese anime, play the cello, and play games with friends.</p>
+          <div class="core-photo">
+            <img src="images/officer-claire.jpg" alt="Claire Wang" loading="lazy" />
+          </div>
+          <div class="core-body">
+            <div class="core-name">Claire Wang</div>
+            <p class="core-bio">Claire Wang is currently a senior at Gunn High School. She has participated in many competitions. She often plays in chamber music groups and charity events with ensembles. In her spare time outside of school, she loves to watch Japanese anime, play the cello, and play games with friends.</p>
+          </div>
         </div>
 
         <div class="core-card">
-          <div class="core-role">Officer</div>
-          <div class="core-name">Sean Sun</div>
-          <p class="core-bio">Sean Sun is a senior at Palo Alto High School and a musician in the San Francisco Conservatory of Music Pre-College program. He is an avid pianist and has won multiple awards. He actively participates in local ensemble groups to bring live music to the community.</p>
+          <div class="core-photo">
+            <img src="images/officer-sean.jpg" alt="Sean Sun" loading="lazy" />
+          </div>
+          <div class="core-body">
+            <div class="core-name">Sean Sun</div>
+            <p class="core-bio">Sean Sun is a sophomore at Cornell University and a musician in the San Francisco Conservatory of Music Pre-College program. He is an avid pianist and has won multiple awards. He actively participates in local ensemble groups to bring live music to the community.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -358,20 +377,6 @@
         <p>Kenneth has been active in chamber music through Young Chamber Musicians, where his quartet, the Moltrés String Quartet, won the Grand Prize in the ENKOR International Music Competition. The ensemble has been invited to perform at venues including Kohl Mansion, the Rossmoor Chamber Music Society, and the 2024 USIMC Fundraising Concert.</p>
         <p>As a soloist, Kenneth has received top prizes in competitions including the United States Open Music Competition, American Protégé International Music Competition, Grand Maestro International Music Competition, International Great Composers Series, and ENKOR International Music Competition. He made his solo concerto debut performing Elgar's Cello Concerto with the Central Oregon Symphony as the first-prize winner of its Young Artist Concerto Competition. He has also performed at Carnegie Hall, the Junior Bach Festival, and numerous community events.</p>
         <p>Over the summers, Kenneth has attended the Montecito International Music Festival, Meadowmount School of Music, and the Boston University Tanglewood Institute, where he served as principal cellist for Mahler's Symphony No. 6. He has worked with and performed in masterclasses for esteemed cellists including Ronald Leonard, Ko Iwasaki, Christopher Costanza, Thomas Landschoot, Wei Yu, Jonathan Swensen, Julian Schwarz, Norman Fischer, Robert DeMaine, and members of the Telegraph, Alexander, Ariel, and St. Lawrence String Quartets.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- BIO POPUP: Mason -->
-  <div class="bio-modal" id="mason-modal">
-    <div class="bio-modal-panel">
-      <button class="bio-modal-close" onclick="document.getElementById('mason-modal').classList.remove('open')">✕</button>
-      <div class="bio-modal-role">Operations Director</div>
-      <div class="bio-modal-name">Mason Lee</div>
-      <div class="bio-modal-body">
-        <p>Mason Lee, 17, is a Korean American violist and a former student of Sheila Browne and Karen Ritscher at the Manhattan School of Music Precollege. He was principal violist for the MSM Precollege Philharmonic Orchestra and assistant principal for the Grammy-winning New York Youth Symphony. He toured with Carnegie Hall's National Youth Orchestra of the United States in the summers of 2025 and 2026.</p>
-        <p>Mason is a 2026 and 2025 YoungArts National Competition winner in Classical Music/Viola and was a semi-finalist in the 2025 Johansen International Competition. He recently won the 2025 MSM Precollege Philharmonic Concerto Competition, becoming the first violist to win in over a decade. He has participated in workshops and masterclasses with violists including Scott Dickinson, Carol Rodland, Jeffery Irvine, Hsin-Yun Huang, and Molly Carr.</p>
-        <p>A finalist in the American Viola Society Festival Solo Competition, Mason has won first prize at the VIVO International, Miclot International, Prima Volta, American Protégé International, and AMTL New York Young Performers competitions, among others. He has been featured as a soloist at Weill Hall at Carnegie Hall and Merkin Hall at Kaufman Music Center, and has performed at Stern Auditorium at Carnegie Hall, Neidorff-Karpati Hall at the Manhattan School of Music, the United Palace Theater, and concert halls across Asia. He is currently a freshman at Stanford University.</p>
       </div>
     </div>
   </div>
