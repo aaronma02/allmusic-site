@@ -71,7 +71,7 @@
       padding: 40px 52px;
       display: flex; flex-direction: column; justify-content: center;
     }
-    .event-tags { display: flex; gap: 16px; align-items: center; margin-bottom: 14px; }
+    .event-tags { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin-bottom: 14px; }
     .tag-type { font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
     .tag-dot { width: 3px; height: 3px; background: var(--border); border-radius: 50%; }
     .tag-loc { font-size: 12px; font-weight: 300; color: var(--text-muted); }
@@ -171,6 +171,23 @@
       </div>
 
       <div class="events-list">
+
+        <div class="event-card reveal">
+          <div class="event-img">
+            <img src="images/event-palestine.jpg" alt="Palestine Relief Benefit Concert" loading="lazy" />
+          </div>
+          <div class="event-body">
+            <div class="event-tags">
+              <span class="tag-type">Benefit Concert</span>
+              <span class="tag-dot"></span>
+              <span class="tag-loc">St. Mark's Episcopal Church</span>
+              <span class="tag-dot"></span>
+              <span class="tag-loc">September 20, 2026</span>
+            </div>
+            <h3>Palestine Relief</h3>
+            <p>A benefit concert at St. Mark's Episcopal Church in Palo Alto, raising funds for humanitarian relief in Palestine.</p>
+          </div>
+        </div>
 
         <div class="event-card reveal">
           <div class="event-img">

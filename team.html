@@ -23,7 +23,8 @@
   <style>
     #intro  { background: var(--bg); padding-bottom: 0; }
     #founder  { background: var(--bg); }
-    #members  { background: var(--bg-alt); }
+    #officers { background: var(--bg-alt); }
+    #members  { background: var(--bg); }
 
     .intro-text { max-width: 760px; }
     .intro-text p {
@@ -262,21 +263,30 @@
           <button class="bio-btn" onclick="document.getElementById('kenneth-modal').classList.add('open')">Read Bio →</button>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="founder-wrap reveal">
-        <div class="founder-photo">
-          <img
-            src="images/mason-lee.jpg"
-            alt="Mason Lee, Operations Director"
-            style="object-position: 30% top;"
-            loading="lazy"
-          />
+  <!-- OFFICERS -->
+  <section id="officers">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:40px">
+        <p class="section-label">Leadership</p>
+        <h2 class="section-title">Officers</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="core-grid reveal">
+        <div class="core-card">
+          <div class="core-role">Operations Director</div>
+          <div class="core-name">Mason Lee</div>
+          <p class="core-bio">Korean American violist and a freshman at Stanford University. Former principal violist of the MSM Precollege Philharmonic and assistant principal of the Grammy-winning New York Youth Symphony, he toured with Carnegie Hall's National Youth Orchestra of the USA in 2025 and 2026.</p>
+          <button class="bio-btn" style="margin-top:14px" onclick="document.getElementById('mason-modal').classList.add('open')">Read Bio →</button>
         </div>
-        <div class="founder-info">
-          <div class="founder-role">Operations Director</div>
-          <div class="founder-name">Mason Lee</div>
-          <p class="founder-bio">Korean American violist and a freshman at Stanford University. Former principal violist of the MSM Precollege Philharmonic and assistant principal of the Grammy-winning New York Youth Symphony, he toured with Carnegie Hall's National Youth Orchestra of the USA in 2025 and 2026.</p>
-          <button class="bio-btn" onclick="document.getElementById('mason-modal').classList.add('open')">Read Bio →</button>
+
+        <div class="core-card">
+          <div class="core-role">Officer</div>
+          <div class="core-name">Claire Wang</div>
+          <p class="core-bio">Claire Wang is currently a freshman at Gunn High School. She has participated in many competitions. She often plays in chamber music groups and charity events with ensembles. In her spare time outside of school, she loves to watch Japanese anime, play the cello, and play games with friends.</p>
         </div>
       </div>
     </div>
