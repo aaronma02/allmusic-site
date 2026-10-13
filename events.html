@@ -22,6 +22,11 @@
   <link rel="stylesheet" href="shared.css" />
   <style>
     #events { background: var(--bg); }
+    #upcoming { background: var(--bg-alt); }
+    .tag-date {
+      font-size: 12px; font-weight: 500; color: var(--accent);
+      letter-spacing: .02em;
+    }
 
     /* ─── WHAT WE DO STRIP ──────────────────────────── */
     #what-we-do {
@@ -160,6 +165,38 @@
     <h1 class="page-title-heading">Events</h1>
     <p class="page-title-sub">We perform benefit concerts and community performances at hospitals, senior homes, and public venues, stream online performances to reach wider audiences and connect with communities, and busk regularly on the streets in downtown areas across the Bay Area.</p>
   </div>
+
+  <!-- UPCOMING -->
+  <section id="upcoming">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:52px">
+        <p class="section-label">Upcoming</p>
+        <h2 class="section-title">What's next</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="events-list">
+
+        <div class="event-card reveal">
+          <div class="event-img">
+            <img src="images/event-reller.jpg" alt="Carolyn Reller Family Concert Series at Stanford Hospital" loading="lazy" />
+          </div>
+          <div class="event-body">
+            <div class="event-tags">
+              <span class="tag-type">Hospital Concert</span>
+              <span class="tag-dot"></span>
+              <span class="tag-loc">Stanford Hospital</span>
+              <span class="tag-dot"></span>
+              <span class="tag-date">April 15, 2027</span>
+            </div>
+            <h3>Carolyn Reller Family Concert Series</h3>
+            <p>An upcoming performance for patients, families, and staff at Stanford Hospital as part of the Carolyn Reller Family Concert Series.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- EVENTS LIST -->
   <section id="events">
